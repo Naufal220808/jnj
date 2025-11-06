@@ -110,12 +110,18 @@ export const analysisAttendance = async (req, res) => {
                 SAKIT: (data.total.sakit / total) * 100 || 0,
                 ALPA: (data.total.alpa / total) * 100 || 0,
             };
+            const final = {
+                HADIR: data.total.hadir,
+                IZIN: data.total.izin,
+                SAKIT: data.total.sakit,
+                ALPA: data.total.alpa,
+            }
 
             return {
                 group,
                 total_users: data.total_users.size,
                 attendance_rate: rate,
-                total_attendance: data.total,
+                total_attendance: final,
             };
         });
 

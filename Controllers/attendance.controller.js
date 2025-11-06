@@ -4,8 +4,8 @@ const prisma = new PrismaClient();
 
 export const getAllAttendance = async (req, res) => {
     try {
-        const Attendance = await prisma.Attendance.findMany();
-        res.status(200).json(Attendance);
+        const attendance = await prisma.attendance.findMany({});
+        res.status(200).json({ attendance });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -13,10 +13,10 @@ export const getAllAttendance = async (req, res) => {
 
 export const getAttendanceById = async (req, res) => {
     try {
-        const Attendance = await prisma.Attendance.findUnique({
+        const attendance = await prisma.attendance.findUnique({
             where: { id: parseInt(req.params.id) },
         });
-        res.status(200).json(Attendance);
+        res.status(200).json(attendance);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -25,16 +25,18 @@ export const getAttendanceById = async (req, res) => {
 export const createAttendance = async (req, res) => {
     try {
         const { userId, date, time, status } = req.body;
-        const Attendance = await prisma.Attendance.create({
+        const Attendance = await prisma.attendance.create({
             data: {
-                userId: parseInt(userId),
+                user: {
+                    connect: { id: userId }
+                },
                 date: new Date(date),
                 time,
                 status,
             },
         });
         res.status(201).json({
-            message: "Attendance berhasil dibuat",
+            message: "attendance berhasil dibuat",
             Attendance,
         });
     } catch (error) {
@@ -44,12 +46,17 @@ export const createAttendance = async (req, res) => {
 };
 
 export const updateAttendance = async (req, res) => {
+    const {date, time, status} = req.body
     try {
-        const Attendance = await prisma.Attendance.update({
+        const attendance = await prisma.attendance.update({
             where: { id: parseInt(req.params.id) },
-            data: req.body,
+            data: {
+                date: new Date(date),
+                time,
+                status,
+            },
         });
-        res.status(200).json(Attendance);
+        res.status(200).json(attendance);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -57,10 +64,10 @@ export const updateAttendance = async (req, res) => {
 
 export const deleteAttendance = async (req, res) => {
     try {
-        const Attendance = await prisma.Attendance.delete({
+        const attendance = await prisma.attendance.delete({
             where: { id: parseInt(req.params.id) },
         });
-        res.status(200).json(Attendance);
+        res.status(200).json(attendance);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
