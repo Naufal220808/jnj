@@ -8,7 +8,7 @@ import {
 } from "../Controllers/User.controller.js";
 import { login } from "../Controllers/auth.controller.js";
 
-const app = express.app();
+const app = express();
 
 app.get("/", getAllUsers);
 app.get("/:id", getUserById);

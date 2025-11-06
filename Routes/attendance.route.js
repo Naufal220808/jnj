@@ -7,7 +7,7 @@ import {
     deleteAttendance,
 } from "../Controllers/attendance.controller.js";
 
-const app = express.app();
+const app = express();
 
 app.get("/", getAllAttendance);
 app.get("/:id", getAttendanceById);
