@@ -197,41 +197,70 @@ model Attendance {
 
 ---
 
+LOGIN
+
+![Nama Alt Text](./OUTPUT/LOGIN.png)
+
+
 CREATE USER
+
 ![Nama Alt Text](./OUTPUT/create%20user.png)
 
+
 ADD ATTENDANCE
+
 ![Nama Alt Text](./OUTPUT/add%20attendance.png)
 
+
 UPDATE USER
+
 ![Nama Alt Text](./OUTPUT/update%20user.png)
 
+
 UPDATE ATTENDANCE
+
 ![Nama Alt Text](./OUTPUT/update%20attendance.png)
 
+
 DELETE USER
+
 ![Nama Alt Text](./OUTPUT/delete%20user.png)
 
+
 DELETE ATTENDANCE
+
 ![Nama Alt Text](./OUTPUT/delete%20attendance.png)
 
+
 GET ALL USER
+
 ![Nama Alt Text](./OUTPUT/output%20get%20user.png)
 
+
 GET ALL ATTENDANCE
+
 ![Nama Alt Text](./OUTPUT/get%20attendace%20by%20id.png)
+
 
 GET USER BY ID
+
 ![Nama Alt Text](./OUTPUT/get%20user%20by%20id.png)
 
+
 GET ATTENDANCE
+
 ![Nama Alt Text](./OUTPUT/get%20attendace%20by%20id.png)
 
+
 GET ATTENDANCE SUMMARY
+
 ![Nama Alt Text](./OUTPUT/get%20att%20summary.png)
  
+
 ANALYSIS SUMMARY
+
 ![Nama Alt Text](./OUTPUT/analysis%20summ.png)
+
 
 ---
 
